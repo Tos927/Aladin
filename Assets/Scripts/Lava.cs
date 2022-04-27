@@ -16,11 +16,10 @@ public class Lava : MonoBehaviour
         while (pos.y < 9)
         {
             pos.y += Time.deltaTime;
-            
+            transform.position = pos;
         }
 
         //pos.y -= Time.deltaTime;
 
-        transform.position = pos;
     }
 }

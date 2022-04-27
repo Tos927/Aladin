@@ -119,6 +119,13 @@ public class Aladin : MonoBehaviour
             Destroy(bullet.gameObject);
         }
 
+        Rock rock = collision.GetComponent<Rock>();
+        if (bullet != null)
+        {
+            Destroy(gameObject);
+            Destroy(bullet.gameObject);
+        }
+
         Destructible destructible = collision.GetComponent<Destructible>();
         if (destructible != null)
         {
