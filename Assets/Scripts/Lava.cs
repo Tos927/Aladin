@@ -13,7 +13,7 @@ public class Lava : MonoBehaviour
     void Update()
     {
         Vector2 pos = transform.position;
-        while (transform.position.y < 9)
+        while (pos.y < 9)
         {
             pos.y += Time.deltaTime;
             
