@@ -1,0 +1,49 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UIElements;
+
+public class Destructible : MonoBehaviour
+{
+    private bool canBeDestroy = false;
+
+    public int pointToWin = 100;
+
+    void Start()
+    {
+        Level.instance.AddEnemy();
+    }
+
+    void Update()
+    {
+        if (transform.position.x < 17.0f && !canBeDestroy)
+        {
+            canBeDestroy = true;
+            Lampe[] lampes = transform.GetComponentsInChildren<Lampe>();
+            foreach (Lampe lampe in lampes)
+            {
+                lampe.isActive = true;
+            }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!canBeDestroy)
+        {
+            return;
+        }
+        Bullet bullet = collision.GetComponent<Bullet>();
+        if (bullet != null && !bullet.isEnemy)
+        {
+            Level.instance.AddScore(pointToWin);
+            Destroy(gameObject);
+            Destroy(bullet.gameObject);
+        }
+    }
+
+    void OnDestroy()
+    {
+        Level.instance.RemoveEnemy();
+    }
+}

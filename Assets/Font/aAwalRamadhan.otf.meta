@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: cc751c8f4e3a0864cb3802f01e28906b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - a Awal Ramadhan
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f9c896dc7164bc1409309388a6bb1a1b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
