@@ -26,6 +26,10 @@ public class Boss : MonoBehaviour
     private bool topReach = false;
     public float speedAtkFly = 4;
 
+    private int randomizer;
+    public int pointToWin = 10000;
+
+    public int health = 30;
 
     void Start()
     {
@@ -40,10 +44,13 @@ public class Boss : MonoBehaviour
     
     void Update()
     {
-        atkBec = Input.GetKey(KeyCode.A);
-        atkFly = Input.GetKey(KeyCode.M);
-        shoot = Input.GetKeyDown(KeyCode.LeftControl);
-        if (shoot)
+        //atkBec = Input.GetKey(KeyCode.A);
+        //atkFly = Input.GetKey(KeyCode.M);
+        //shoot = Input.GetKeyDown(KeyCode.LeftControl);
+
+        StartCoroutine(CoolDownRandomizer());
+
+        if (randomizer == 0)
         {
             shoot = false;
             foreach (Lampe lampe in lampes)
@@ -52,16 +59,16 @@ public class Boss : MonoBehaviour
             }
         }
 
-        if (atkBec)
+        if (randomizer == 1)
         {
             isAttacking1 = true;
         }
 
-        if (atkFly)
+        if (randomizer == 2)
         {
             isAttacking2 = true;
         }
-        
+
     }
 
     private void FixedUpdate()
@@ -89,6 +96,30 @@ public class Boss : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Bullet bullet = collision.GetComponent<Bullet>();
+        if (bullet != null && !bullet.isEnemy)
+        {
+            health--;
+            if (health <= 0)
+            {
+                Level.instance.AddScore(pointToWin);
+                Destroy(gameObject);
+            }
+            Destroy(bullet.gameObject);
+        }
+        if (collision.tag == "Ulti")
+        {
+            health--;
+            if (health <= 0)
+            {
+                Level.instance.AddScore(pointToWin);
+                Destroy(gameObject);
+            }
+        }
+    }
+
     IEnumerator CoolDownAtkBec()
     {
         yield return new WaitForSeconds(1);
@@ -106,5 +137,11 @@ public class Boss : MonoBehaviour
         boss.GetComponent<BoxCollider2D>().enabled = true;
         spBoss.enabled = true;
         spBody.enabled = false;
+    }
+
+    IEnumerator CoolDownRandomizer()
+    {
+        randomizer = Random.Range(0, 3);
+        yield return new WaitForSeconds(5);
     }
 }

@@ -40,6 +40,13 @@ public class Destructible : MonoBehaviour
             Destroy(gameObject);
             Destroy(bullet.gameObject);
         }
+
+        if (collision.tag == "Ulti")
+        {
+            Debug.Log("touché");
+            Level.instance.AddScore(pointToWin);
+            Destroy(gameObject);
+        }
     }
 
     void OnDestroy()

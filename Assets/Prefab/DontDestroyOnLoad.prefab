@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8968824064273494857}
   m_Layer: 0
   m_Name: UltiAttack
-  m_TagString: Untagged
+  m_TagString: Ulti
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -169,9 +169,10 @@ GameObject:
   - component: {fileID: 1688195195017517655}
   - component: {fileID: 1688195195017517656}
   - component: {fileID: 1688195195017517657}
+  - component: {fileID: 7211161822920889}
   m_Layer: 0
   m_Name: Aladin
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,7 +190,6 @@ Transform:
   m_Children:
   - {fileID: 1688195195020676775}
   - {fileID: 1688195193617568380}
-  - {fileID: 3255073763335713082}
   m_Father: {fileID: 1688195195544729427}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -206,12 +206,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  health: {fileID: 7211161822920889}
   lifePoints: 3
   ultiCooldown: {fileID: 6580168537872625645}
   deathScreen: {fileID: 4007640669644783767}
   graphics: {fileID: 1688195195020676776}
   ultime: {fileID: 2902470423391239635}
   ultimeAttack: {fileID: 939678701756010550}
+  speedUlti: 10
 --- !u!50 &1688195195017517656
 Rigidbody2D:
   serializedVersion: 4
@@ -259,6 +261,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8461058, y: 0.79480743}
   m_EdgeRadius: 0
+--- !u!114 &7211161822920889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688195195017517653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f2cd07949b3a343ad8fbadb9c0fda0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  numOfHearts: 3
+  hearts:
+  - {fileID: 8280933385126897917}
+  - {fileID: 1051501105256229564}
+  - {fileID: 8563436345833894310}
+  fullHeart: {fileID: 21300000, guid: 540889dab82748d4587b8dda86cbb7bb, type: 3}
+  emptyHeart: {fileID: 21300000, guid: 262139041ace1aa4490b2bf57a4b1eb0, type: 3}
 --- !u!1 &1688195195020676774
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,6 +392,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1688195195017517654}
+  - {fileID: 3255073763335713082}
   - {fileID: 5503586325356765735}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -429,7 +452,7 @@ RectTransform:
   - {fileID: 2758949921924297250}
   - {fileID: 5567353358816736040}
   m_Father: {fileID: 1688195195544729427}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -596,13 +619,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2902470423391239635}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.73, y: -2.94, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.873739, y: -2.597484, z: 4.197011}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 5805998364613984994}
-  m_Father: {fileID: 1688195195017517654}
-  m_RootOrder: 2
+  m_Father: {fileID: 1688195195544729427}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6965017541553647150
 SpriteRenderer:
@@ -1105,7 +1128,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: cc751c8f4e3a0864cb3802f01e28906b, type: 3}
+    m_Font: {fileID: 12800000, guid: f9c896dc7164bc1409309388a6bb1a1b, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
