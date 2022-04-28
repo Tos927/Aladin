@@ -22,6 +22,8 @@ public class Aladin : MonoBehaviour
     public Slider ultiCooldown;
     public GameObject deathScreen;
 
+    private bool isInvincible = false;
+
     void Start()
     {
         lampes = transform.GetComponentsInChildren<Lampe>();
@@ -113,9 +115,11 @@ public class Aladin : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         Bullet bullet = collision.GetComponent<Bullet>();
-        if (bullet != null && bullet.isEnemy)
+        if (bullet != null && bullet.isEnemy && isInvincible == false)
         {
             lifePoints--;
+            isInvincible = true;
+            StartCoroutine(InvincibilityFlash());
             if (lifePoints <= 0)
             {
                 Destroy(gameObject);
@@ -126,9 +130,11 @@ public class Aladin : MonoBehaviour
         }
 
         Rock rock = collision.GetComponent<Rock>();
-        if (rock != null)
+        if (rock != null && isInvincible == false)
         {
             lifePoints--;
+            isInvincible = true;
+            StartCoroutine(InvincibilityFlash());
             if (lifePoints <= 0)
             {
                 Destroy(gameObject);
@@ -138,9 +144,11 @@ public class Aladin : MonoBehaviour
         }
 
         Lava lava = collision.GetComponent<Lava>();
-        if (lava != null)
+        if (lava != null && isInvincible == false)
         {
             lifePoints--;
+            isInvincible = true;
+            StartCoroutine(InvincibilityFlash());
             if (lifePoints <= 0)
             {
                 Destroy(gameObject);
@@ -150,9 +158,11 @@ public class Aladin : MonoBehaviour
         }
 
         LanceSwing lance = collision.GetComponent<LanceSwing>();
-        if (lance != null)
+        if (lance != null && isInvincible == false)
         {
             lifePoints--;
+            isInvincible = true;
+            StartCoroutine(InvincibilityFlash());
             if (lifePoints <= 0)
             {
                 Destroy(gameObject);
@@ -162,9 +172,11 @@ public class Aladin : MonoBehaviour
         }
 
         Destructible destructible = collision.GetComponent<Destructible>();
-        if (destructible != null)
+        if (destructible != null && isInvincible == false)
         {
             lifePoints--;
+            isInvincible = true;
+            StartCoroutine(InvincibilityFlash());
             if (lifePoints <= 0)
             {
                 Destroy(gameObject);
@@ -172,6 +184,15 @@ public class Aladin : MonoBehaviour
                 deathScreen.SetActive(true);
             }
             Destroy(destructible.gameObject);
+        }
+    }
+
+    private IEnumerator InvincibilityFlash()
+    {
+        while (isInvincible)
+        {
+            yield return new WaitForSeconds(2);
+            isInvincible = false;
         }
     }
 }
