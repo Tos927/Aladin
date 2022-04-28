@@ -149,6 +149,18 @@ public class Aladin : MonoBehaviour
             }
         }
 
+        LanceSwing lance = collision.GetComponent<LanceSwing>();
+        if (lance != null)
+        {
+            lifePoints--;
+            if (lifePoints <= 0)
+            {
+                Destroy(gameObject);
+                Time.timeScale = 0;
+                deathScreen.SetActive(true);
+            }
+        }
+
         Destructible destructible = collision.GetComponent<Destructible>();
         if (destructible != null)
         {
