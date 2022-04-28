@@ -21,6 +21,7 @@ public class Aladin : MonoBehaviour
     public int lifePoints = 3;
     public Slider ultiCooldown;
     public GameObject deathScreen;
+    public SpriteRenderer graphics;
 
     private bool isInvincible = false;
 
@@ -191,7 +192,14 @@ public class Aladin : MonoBehaviour
     {
         while (isInvincible)
         {
-            yield return new WaitForSeconds(2);
+            graphics.color = new Color(1f, 1f, 1f, 0f);
+            yield return new WaitForSeconds(0.2f);
+            graphics.color = new Color(1f, 1f, 1f, 1f);
+            yield return new WaitForSeconds(0.2f);
+            graphics.color = new Color(1f, 1f, 1f, 0f);
+            yield return new WaitForSeconds(0.2f);
+            graphics.color = new Color(1f, 1f, 1f, 1f);
+            yield return new WaitForSeconds(1.4f);
             isInvincible = false;
         }
     }

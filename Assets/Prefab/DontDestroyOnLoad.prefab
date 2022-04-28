@@ -99,6 +99,7 @@ MonoBehaviour:
   lifePoints: 3
   ultiCooldown: {fileID: 6580168537872625645}
   deathScreen: {fileID: 4007640669644783767}
+  graphics: {fileID: 1688195195020676776}
 --- !u!50 &1688195195017517656
 Rigidbody2D:
   serializedVersion: 4
