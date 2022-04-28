@@ -95,11 +95,12 @@ public class Boss : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         Bullet bullet = collision.GetComponent<Bullet>();
         if (bullet != null && !bullet.isEnemy)
         {
+            Debug.Log("Hit");
             health--;
             if (health <= 0)
             {
