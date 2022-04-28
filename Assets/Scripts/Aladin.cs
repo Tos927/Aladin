@@ -199,7 +199,7 @@ public class Aladin : MonoBehaviour
             graphics.color = new Color(1f, 1f, 1f, 0f);
             yield return new WaitForSeconds(0.2f);
             graphics.color = new Color(1f, 1f, 1f, 1f);
-            yield return new WaitForSeconds(1.4f);
+            yield return new WaitForSeconds(2.4f);
             isInvincible = false;
         }
     }
