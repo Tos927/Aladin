@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3106160056750564631}
   - component: {fileID: 6925587864054951613}
   - component: {fileID: 5752192327011434856}
+  - component: {fileID: 6115589404060643028}
+  - component: {fileID: 1790052212072490863}
   m_Layer: 0
   m_Name: ObstacleRock
   m_TagString: Untagged
@@ -131,3 +133,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6115589404060643028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8293691739643637156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c445d2586285454cacf435581d5f08c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+--- !u!114 &1790052212072490863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8293691739643637156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a67a57c4a5db1f44bbf12a4b291cb72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cailloux: {fileID: 8293691739643637156}
