@@ -23,6 +23,12 @@ public class Aladin : MonoBehaviour
     public GameObject deathScreen;
     public SpriteRenderer graphics;
 
+    public GameObject ultime;
+    public GameObject ultimeAttack;
+    private Vector2 ultimePosStart;
+    private bool isUlti = false;
+    private float speedUlti = 5;
+
     private bool isInvincible = false;
 
     void Start()
@@ -32,6 +38,8 @@ public class Aladin : MonoBehaviour
         {
             lampe.isActive = true;
         }
+
+        ultimePosStart = ultimeAttack.transform.position;
     }
     
     void Update()
@@ -52,10 +60,23 @@ public class Aladin : MonoBehaviour
                 lampe.Shoot();
             }
         }
+
+        if (ulti)
+        {
+            isUlti = true;
+        }
     }
 
     private void FixedUpdate()
     {
+        if (isUlti)
+        {
+            Vector2 pos1 = ultimeAttack.transform.position;
+            pos1.x += speedUlti * Time.fixedDeltaTime;
+            ultimeAttack.transform.position = pos1;
+            StartCoroutine(CoolDownInUlti());
+        }
+
         Vector2 pos = transform.position;
 
         float moveAmount = moveSpeed * Time.fixedDeltaTime;
@@ -89,7 +110,7 @@ public class Aladin : MonoBehaviour
             move *= ratio;
         }
 
-        pos += move; //mettre les valeurs en variable public pour GD
+        pos += move; //mettre les valeurs en variable public pour GD ou pas
         if (pos.x <=0.6f)
         {
             pos.x = 0.6f;
@@ -202,5 +223,12 @@ public class Aladin : MonoBehaviour
             yield return new WaitForSeconds(2.4f);
             isInvincible = false;
         }
+    }
+
+    private IEnumerator CoolDownInUlti()
+    {
+        yield return new WaitForSeconds(1);
+        isUlti = false;
+        ultimeAttack.transform.position = ultimePosStart;
     }
 }
