@@ -6,16 +6,25 @@ public class Boss : MonoBehaviour
 {
     private Lampe[] lampes;
     private bool shoot;
+    private bool atkBec;
 
-    // Start is called before the first frame update
+    public GameObject bcBec;
+    public GameObject bcBody;
+
+    public float speedAtkPic = 2;
+    private bool isAttacking = false;
+    private bool topReach = false;
+    public float speedAtkFly = 4;
+
+
     void Start()
     {
         lampes = transform.GetComponentsInChildren<Lampe>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
+        atkBec = Input.GetKeyDown(KeyCode.A);
         shoot = Input.GetKeyDown(KeyCode.LeftControl);
         if (shoot)
         {
@@ -24,6 +33,60 @@ public class Boss : MonoBehaviour
             {
                 lampe.Shoot();
             }
+        }
+
+        if (atkBec)
+        {
+            Debug.Log("PicPic");
+            isAttacking = true;
+            AtkPic(isAttacking);
+            isAttacking = false;
+        }
+    }
+
+    /*private void FixedUpdate()
+    {
+        Vector2 pos = bcBec.transform.position;
+        pos.x -= speedAtkPic * Time.deltaTime;
+        
+        if (pos.x <= -5 && !topReach)
+        {
+            pos.x += speedAtkPic * Time.deltaTime;
+        }
+
+        if (pos.x >= 0 || topReach)
+        {
+            topReach = true;
+            pos.x = 0;
+        }
+
+        bcBec.transform.position = pos;
+    }*/
+
+    private void AtkPic(bool attacking)
+    {
+        Vector2 pos = bcBec.transform.position;
+
+        while (attacking)
+        {
+            if (!topReach)
+            {
+                pos.x -= speedAtkPic * Time.deltaTime;
+            }
+
+            if (pos.x <= -5)
+            {
+                pos.x += speedAtkPic * Time.fixedDeltaTime;
+                topReach = true;
+            }
+
+            if (pos.x >= 0)
+            {
+                pos.x = 0;
+            }
+
+            bcBec.transform.position = pos;
+            attacking = false;
         }
     }
 }

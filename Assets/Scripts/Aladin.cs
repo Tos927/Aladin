@@ -42,7 +42,7 @@ public class Aladin : MonoBehaviour
         moveRight = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D);
         speedUp = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
-        ulti = Input.GetKey(KeyCode.E) /*|| Input.GetKeyDown(KeyCode.Space)*/;
+        ulti = Input.GetKeyDown(KeyCode.E) /*|| Input.GetKeyDown(KeyCode.Space)*/;
         shoot = Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0);
         if (shoot)
         {
