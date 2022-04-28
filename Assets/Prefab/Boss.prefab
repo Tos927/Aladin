@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1336978575}
   m_Layer: 0
   m_Name: Bec
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 6859092392082944760}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 5007984086577804180}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -452,6 +452,9 @@ MonoBehaviour:
   spBody: {fileID: 2168993418615169613}
   speedAtkPic: 6
   speedAtkFly: 16
+  pointToWin: 10000
+  health: 30
+  victoryScreen: {fileID: 0}
 --- !u!61 &5007984086577804180
 BoxCollider2D:
   m_ObjectHideFlags: 0

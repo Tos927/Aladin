@@ -30,6 +30,7 @@ public class Boss : MonoBehaviour
     public int pointToWin = 10000;
 
     public int health = 30;
+    public GameObject victoryScreen;
 
     void Start()
     {
@@ -40,15 +41,15 @@ public class Boss : MonoBehaviour
         spBoss = boss.GetComponentInChildren<SpriteRenderer>();
         spBody.enabled = false;
         spBec.enabled = false;
+
+        StartCoroutine(CoolDownRandomizer());
     }
-    
+
     void Update()
     {
         //atkBec = Input.GetKey(KeyCode.A);
         //atkFly = Input.GetKey(KeyCode.M);
         //shoot = Input.GetKeyDown(KeyCode.LeftControl);
-
-        StartCoroutine(CoolDownRandomizer());
 
         if (randomizer == 0)
         {
@@ -58,13 +59,11 @@ public class Boss : MonoBehaviour
                 lampe.Shoot();
             }
         }
-
-        if (randomizer == 1)
+        else if (randomizer == 1)
         {
             isAttacking1 = true;
         }
-
-        if (randomizer == 2)
+        else if (randomizer == 2)
         {
             isAttacking2 = true;
         }
@@ -106,6 +105,7 @@ public class Boss : MonoBehaviour
             {
                 Level.instance.AddScore(pointToWin);
                 Destroy(gameObject);
+                victoryScreen.SetActive(true);
             }
             Destroy(bullet.gameObject);
         }
@@ -116,6 +116,7 @@ public class Boss : MonoBehaviour
             {
                 Level.instance.AddScore(pointToWin);
                 Destroy(gameObject);
+                victoryScreen.SetActive(true);
             }
         }
     }
@@ -141,7 +142,13 @@ public class Boss : MonoBehaviour
 
     IEnumerator CoolDownRandomizer()
     {
-        randomizer = Random.Range(0, 3);
-        yield return new WaitForSeconds(5);
+        randomizer = -1;
+        while (true)
+        {
+            yield return null;
+            randomizer = -1;
+            yield return new WaitForSeconds(5);
+            randomizer = Random.Range(0, 3);
+        }
     }
 }
