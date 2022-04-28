@@ -261,7 +261,7 @@ SpriteRenderer:
   m_Size: {x: 9.84, y: 5.65}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1234058992697606116
@@ -643,7 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - Level2C
+  - Level2_LD
   - Level3C
   - Level4C
   scoreText: {fileID: 0}
