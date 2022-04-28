@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 5567675151519726180}
   - component: {fileID: 5567675151519726183}
   - component: {fileID: 5007984086577804180}
+  - component: {fileID: 7433237438482904710}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -446,6 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: 5567675151519726181}
+  bcBoss: {fileID: 0}
   bcBec: {fileID: 383194580973674178}
   spBec: {fileID: 1336978577}
   bcBody: {fileID: 3923477247720508859}
@@ -481,6 +483,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.332881, y: 9.994762}
   m_EdgeRadius: 0
+--- !u!50 &7433237438482904710
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5567675151519726181}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5567675151897847102
 GameObject:
   m_ObjectHideFlags: 0

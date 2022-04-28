@@ -10,7 +10,7 @@ public class Boss : MonoBehaviour
     private bool atkFly;
 
     public GameObject boss;
-    private BoxCollider2D bcBoss;
+    public BoxCollider2D bcBoss;
     private SpriteRenderer spBoss;
     public GameObject bcBec;
     public SpriteRenderer spBec;
@@ -29,6 +29,8 @@ public class Boss : MonoBehaviour
     private int randomizer;
     public int pointToWin = 10000;
 
+    private bool canBeDestroy = true;
+
     public int health = 30;
     public GameObject victoryScreen;
 
@@ -41,7 +43,6 @@ public class Boss : MonoBehaviour
         spBoss = boss.GetComponentInChildren<SpriteRenderer>();
         spBody.enabled = false;
         spBec.enabled = false;
-
         StartCoroutine(CoolDownRandomizer());
     }
 
@@ -97,10 +98,9 @@ public class Boss : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Bullet bullet = collision.GetComponent<Bullet>();
-        if (bullet != null && !bullet.isEnemy)
+        Debug.Log("Hit");
+        if (collision.tag == "BulletPlayer")
         {
-            Debug.Log("Hit");
             health--;
             if (health <= 0)
             {
@@ -108,9 +108,9 @@ public class Boss : MonoBehaviour
                 Destroy(gameObject);
                 victoryScreen.SetActive(true);
             }
-            Destroy(bullet.gameObject);
+            Destroy(collision.gameObject);
         }
-        if (collision.tag == "Ulti")
+        else if (collision.tag == "Ulti")
         {
             health--;
             if (health <= 0)
@@ -121,6 +121,28 @@ public class Boss : MonoBehaviour
             }
         }
     }
+    /*void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!canBeDestroy)
+        {
+            return;
+        }
+        Bullet bullet = collision.GetComponent<Bullet>();
+        if (bullet != null && !bullet.isEnemy)
+        {
+            health--;
+            Level.instance.AddScore(pointToWin);
+            Destroy(gameObject);
+            Destroy(bullet.gameObject);
+        }
+
+        if (collision.tag == "Ulti")
+        {
+            Debug.Log("touché");
+            Level.instance.AddScore(pointToWin);
+            Destroy(gameObject);
+        }
+    }*/
 
     IEnumerator CoolDownAtkBec()
     {

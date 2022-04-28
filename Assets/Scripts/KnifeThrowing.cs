@@ -16,6 +16,10 @@ public class KnifeThrowing : MonoBehaviour
 
     public bool isActive = false;
 
+    private void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+    }
     void Update()
     {
         if (!isActive)
