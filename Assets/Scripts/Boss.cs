@@ -9,9 +9,10 @@ public class Boss : MonoBehaviour
     private bool atkBec;
 
     public GameObject bcBec;
+    private Vector2 bcPos;
     public GameObject bcBody;
 
-    public float speedAtkPic = 2;
+    public float speedAtkPic = 6;
     private bool isAttacking = false;
     private bool topReach = false;
     public float speedAtkFly = 4;
@@ -20,11 +21,12 @@ public class Boss : MonoBehaviour
     void Start()
     {
         lampes = transform.GetComponentsInChildren<Lampe>();
+        bcPos = bcBec.transform.position;
     }
     
     void Update()
     {
-        atkBec = Input.GetKeyDown(KeyCode.A);
+        atkBec = Input.GetKey(KeyCode.A);
         shoot = Input.GetKeyDown(KeyCode.LeftControl);
         if (shoot)
         {
@@ -37,56 +39,27 @@ public class Boss : MonoBehaviour
 
         if (atkBec)
         {
-            Debug.Log("PicPic");
             isAttacking = true;
-            AtkPic(isAttacking);
-            isAttacking = false;
+        }
+        
+    }
+
+    private void FixedUpdate()
+    {
+        if (isAttacking)
+        {
+            Vector2 pos = bcBec.transform.position;
+            pos.x -= speedAtkPic * Time.fixedDeltaTime;
+            bcBec.transform.position = pos;
+            StartCoroutine(CoolDownAtkBec());
+
         }
     }
 
-    /*private void FixedUpdate()
+    IEnumerator CoolDownAtkBec()
     {
-        Vector2 pos = bcBec.transform.position;
-        pos.x -= speedAtkPic * Time.deltaTime;
-        
-        if (pos.x <= -5 && !topReach)
-        {
-            pos.x += speedAtkPic * Time.deltaTime;
-        }
-
-        if (pos.x >= 0 || topReach)
-        {
-            topReach = true;
-            pos.x = 0;
-        }
-
-        bcBec.transform.position = pos;
-    }*/
-
-    private void AtkPic(bool attacking)
-    {
-        Vector2 pos = bcBec.transform.position;
-
-        while (attacking)
-        {
-            if (!topReach)
-            {
-                pos.x -= speedAtkPic * Time.deltaTime;
-            }
-
-            if (pos.x <= -5)
-            {
-                pos.x += speedAtkPic * Time.fixedDeltaTime;
-                topReach = true;
-            }
-
-            if (pos.x >= 0)
-            {
-                pos.x = 0;
-            }
-
-            bcBec.transform.position = pos;
-            attacking = false;
-        }
+        yield return new WaitForSeconds(1);
+        isAttacking = false;
+        bcBec.transform.position = bcPos;
     }
 }

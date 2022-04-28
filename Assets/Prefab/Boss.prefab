@@ -306,7 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bcBec: {fileID: 383194580973674178}
   bcBody: {fileID: 5567675151519726181}
-  speedAtkPic: 2
+  speedAtkPic: 6
   speedAtkFly: 4
 --- !u!61 &5007984086577804180
 BoxCollider2D:

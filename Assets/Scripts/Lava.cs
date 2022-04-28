@@ -18,7 +18,7 @@ public class Lava : MonoBehaviour
         
         if (pos.y >= 9 || topReach)
         {
-            pos.y -= speed * Time.deltaTime;
+            pos.y -= speed * Time.fixedDeltaTime;
             topReach = true;
         }
 

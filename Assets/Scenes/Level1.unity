@@ -261,6 +261,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 5567675151519726183, guid: e35abee437a19364e938dd01e8b2dfed, type: 3}
+      propertyPath: speedAtkPic
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e35abee437a19364e938dd01e8b2dfed, type: 3}
 --- !u!1001 &1688195193452187536
