@@ -120,10 +120,27 @@ public class Aladin : MonoBehaviour
         }
 
         Rock rock = collision.GetComponent<Rock>();
-        if (bullet != null)
+        if (rock != null)
         {
-            Destroy(gameObject);
-            Destroy(bullet.gameObject);
+            lifePoints--;
+            if (lifePoints <= 0)
+            {
+                Destroy(gameObject);
+                Time.timeScale = 0;
+                deathScreen.SetActive(true);
+            }
+        }
+
+        Lava lava = collision.GetComponent<Lava>();
+        if (lava != null)
+        {
+            lifePoints--;
+            if (lifePoints <= 0)
+            {
+                Destroy(gameObject);
+                Time.timeScale = 0;
+                deathScreen.SetActive(true);
+            }
         }
 
         Destructible destructible = collision.GetComponent<Destructible>();
