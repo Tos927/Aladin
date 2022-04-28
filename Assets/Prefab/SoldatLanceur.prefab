@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1344956775075795888}
   - component: {fileID: 1344956775075795903}
-  - component: {fileID: 6977079932611588509}
+  - component: {fileID: 8151753647021111366}
   - component: {fileID: -8224340193615971160}
   - component: {fileID: 2899246270483743817}
   m_Layer: 0
-  m_Name: BatShoot
+  m_Name: SoldatLanceur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,11 +29,10 @@ Transform:
   m_GameObject: {fileID: 1344956775075795902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 19.94, y: 4.73, z: -3.3262155}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 1344956776408385833}
   - {fileID: 5489585415505942112}
-  - {fileID: 18795221191561190}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
---- !u!114 &6977079932611588509
+--- !u!114 &8151753647021111366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,7 +58,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1344956775075795902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36d1a080e81ea774b8430e9d4c7e0c31, type: 3}
+  m_Script: {fileID: 11500000, guid: 389250fac8c272a4c94e76c520b5e31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pointToWin: 100
@@ -136,7 +135,7 @@ Transform:
   m_GameObject: {fileID: 1344956776408385832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 3.3262155}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1344956775075795888}
   m_RootOrder: 0
@@ -181,8 +180,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 438c61074b84e23448b315ec60b35ede, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: e746683cde842fd4db085b70a4707a56, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -201,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5489585415505942112}
-  - component: {fileID: 4067724093056132749}
+  - component: {fileID: 721300981714344248}
   m_Layer: 0
   m_Name: BulletSpawn
   m_TagString: Untagged
@@ -223,7 +222,7 @@ Transform:
   m_Father: {fileID: 1344956775075795888}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!114 &4067724093056132749
+--- !u!114 &721300981714344248
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,59 +231,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4735822286707514269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6217df7374edd6241ac8d17f47501fa8, type: 3}
+  m_Script: {fileID: 11500000, guid: 18d7d710c6c78e348b528c039739d32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1243738876400795658, guid: 0499b02f9112d99419ab6a25afaf4689, type: 3}
+  player: {fileID: 0}
   autoShoot: 1
   shootIntervalSeconds: 2
   shootDelaySeconds: 0
-  isActive: 0
---- !u!1 &4883481899494869358
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 18795221191561190}
-  - component: {fileID: 2149615087722739493}
-  m_Layer: 0
-  m_Name: BulletSpawn (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &18795221191561190
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4883481899494869358}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.67, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1344956775075795888}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!114 &2149615087722739493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4883481899494869358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6217df7374edd6241ac8d17f47501fa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 1243738876400795658, guid: 0499b02f9112d99419ab6a25afaf4689, type: 3}
-  autoShoot: 1
-  shootIntervalSeconds: 2
-  shootDelaySeconds: 0.2
   isActive: 0

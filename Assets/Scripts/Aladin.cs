@@ -115,7 +115,13 @@ public class Aladin : MonoBehaviour
         Bullet bullet = collision.GetComponent<Bullet>();
         if (bullet != null && bullet.isEnemy)
         {
-            Destroy(gameObject);
+            lifePoints--;
+            if (lifePoints <= 0)
+            {
+                Destroy(gameObject);
+                Time.timeScale = 0;
+                deathScreen.SetActive(true);
+            }
             Destroy(bullet.gameObject);
         }
 
