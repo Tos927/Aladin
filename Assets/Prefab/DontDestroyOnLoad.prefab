@@ -548,7 +548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - Level2_LD
+  - Level2
   - Level3
   scoreText: {fileID: 4499382800795665827}
 --- !u!1 &2000249601757879912
