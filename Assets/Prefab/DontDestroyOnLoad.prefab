@@ -549,8 +549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - Level2_LD
-  - Level3C
-  - Level4C
+  - Level3
   scoreText: {fileID: 0}
 --- !u!1 &2000249601757879912
 GameObject:
