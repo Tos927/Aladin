@@ -4,17 +4,33 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    /*public GameObject pauseScreen;
+    public GameObject pauseScreen;
+    public Aladin aladin;
+    private bool isActive = false;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P) && !isActive && !aladin.isGameOverActive)
+        {
+            SetPause();
+            isActive = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.P) && isActive)
+        {
+            SetPlay();
+            isActive = false;
+        }
+    }
 
     void SetPause()
     {
-        Time.TimeScale = 0;
+        Time.timeScale = 0;
         pauseScreen.SetActive(true);
     }
 
     void SetPlay()
     {
-        Time.TimeScale = 1;
+        Time.timeScale = 1;
         pauseScreen.SetActive(false);
-    }*/
+    }
 }

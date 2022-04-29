@@ -17,11 +17,12 @@ public class Aladin : MonoBehaviour
 
     private bool shoot;
     private bool ulti;
+    public AudioSource ultiSound;
 
     public Health health;
+    public UltiCD coolDownUlti;
 
     public int lifePoints = 3;
-    public Slider ultiCooldown;
     public GameObject deathScreen;
     public SpriteRenderer graphics;
 
@@ -32,6 +33,8 @@ public class Aladin : MonoBehaviour
     public float speedUlti = 10;
 
     private bool isInvincible = false;
+    
+    public bool isGameOverActive = false;
 
     void Start()
     {
@@ -54,8 +57,8 @@ public class Aladin : MonoBehaviour
         moveRight = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D);
         speedUp = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
-        ulti = Input.GetKeyDown(KeyCode.E) /*|| Input.GetKeyDown(KeyCode.Space)*/;
-        shoot = Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0);
+        ulti = /*Input.GetKeyDown(KeyCode.E) || */Input.GetKeyDown(KeyCode.Space);
+        shoot = /*Input.GetKeyDown(KeyCode.Space) ||*/Input.GetKeyDown(KeyCode.Mouse0);
         if (shoot)
         {
             shoot = false;
@@ -67,6 +70,7 @@ public class Aladin : MonoBehaviour
 
         if (ulti)
         {
+            ultiSound.Play();
             isUlti = true;
             ultime.SetActive(true);
             ultimeAttack.SetActive(true);
@@ -153,6 +157,7 @@ public class Aladin : MonoBehaviour
                 Destroy(gameObject);
                 Time.timeScale = 0;
                 deathScreen.SetActive(true);
+                isGameOverActive = true;
             }
             Destroy(bullet.gameObject);
         }
@@ -168,6 +173,7 @@ public class Aladin : MonoBehaviour
                 Destroy(gameObject);
                 Time.timeScale = 0;
                 deathScreen.SetActive(true);
+                isGameOverActive = true;
             }
         }
 
@@ -182,6 +188,7 @@ public class Aladin : MonoBehaviour
                 Destroy(gameObject);
                 Time.timeScale = 0;
                 deathScreen.SetActive(true);
+                isGameOverActive = true;
             }
         }
 
@@ -196,6 +203,7 @@ public class Aladin : MonoBehaviour
                 Destroy(gameObject);
                 Time.timeScale = 0;
                 deathScreen.SetActive(true);
+                isGameOverActive = true;
             }
         }
 
@@ -210,6 +218,7 @@ public class Aladin : MonoBehaviour
                 Destroy(gameObject);
                 Time.timeScale = 0;
                 deathScreen.SetActive(true);
+                isGameOverActive = true;
             }
             Destroy(destructible.gameObject);
         }
@@ -224,6 +233,7 @@ public class Aladin : MonoBehaviour
                 Destroy(gameObject);
                 Time.timeScale = 0;
                 deathScreen.SetActive(true);
+                isGameOverActive = true;
             }
         }
     }
@@ -252,10 +262,11 @@ public class Aladin : MonoBehaviour
 
     private IEnumerator CoolDownInUlti()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
+        ultime.SetActive(false);
+        yield return new WaitForSeconds(coolDownUlti.cooldown - 1.5f);
         isUlti = false;
         ultimeAttack.transform.position = ultimePosStart;
         ultimeAttack.SetActive(false);
-        ultime.SetActive(false);
     }
 }
