@@ -550,7 +550,7 @@ MonoBehaviour:
   levels:
   - Level2_LD
   - Level3
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 4499382800795665827}
 --- !u!1 &2000249601757879912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,7 +1439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 1234058992697606116}
-  aladin: {fileID: 0}
+  aladin: {fileID: 466228951315477831}
 --- !u!114 &343231939701695864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1453,7 +1453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: MainMenu
-  aladin: {fileID: 0}
+  aladin: {fileID: 466228951315477831}
 --- !u!1 &6715247258650749737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1838,6 +1838,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2902470423391239635}
     - target: {fileID: 8376727657578350072, guid: 6ebce4e86f141654e8d393011aec26d2, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376727657578350072, guid: 6ebce4e86f141654e8d393011aec26d2, type: 3}
       propertyPath: ultiSound
       value: 
       objectReference: {fileID: 6560781312972165704}
@@ -1860,3 +1864,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 360339068973360943, guid: 6ebce4e86f141654e8d393011aec26d2, type: 3}
   m_PrefabInstance: {fileID: 8230466509207285951}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &466228951315477831 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8376727657578350072, guid: 6ebce4e86f141654e8d393011aec26d2, type: 3}
+  m_PrefabInstance: {fileID: 8230466509207285951}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b57051eda9797c4399a185ae0cbf2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

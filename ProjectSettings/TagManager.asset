@@ -8,6 +8,7 @@ TagManager:
   - Boss
   - BulletPlayer
   - VictoryScreen
+  - Linge
   layers:
   - Default
   - TransparentFX

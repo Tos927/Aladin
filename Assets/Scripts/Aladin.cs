@@ -222,6 +222,20 @@ public class Aladin : MonoBehaviour
             }
             Destroy(destructible.gameObject);
         }
+
+        if (collision.tag == ("Linge"))
+        {
+            TakeDamage();
+            isInvincible = true;
+            StartCoroutine(InvincibilityFlash());
+            if (lifePoints <= 0)
+            {
+                Destroy(gameObject);
+                Time.timeScale = 0;
+                deathScreen.SetActive(true);
+                isGameOverActive = true;
+            }
+        }
         
         if (collision.tag == ("Boss") && isInvincible == false)
         {
