@@ -25,11 +25,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169546809}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03000021, y: 0.03000021, z: 0}
-  m_LocalScale: {x: 0.81000006, y: 0.81000006, z: 1}
+  m_LocalPosition: {x: 19.6, y: -9.899999, z: 0}
+  m_LocalScale: {x: 2.7, y: 2.7, z: 1}
   m_Children: []
-  m_Father: {fileID: 5567675151519726180}
-  m_RootOrder: 7
+  m_Father: {fileID: 7942722240785131336}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1169546811
 SpriteRenderer:
@@ -108,9 +108,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383194580973674178}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: -5.72, y: 3, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1169546810}
   m_Father: {fileID: 5567675151519726180}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -303,7 +304,7 @@ Transform:
   m_Children:
   - {fileID: 4623555513912391217}
   m_Father: {fileID: 5567675151519726180}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6859092392082944760
 BoxCollider2D:
@@ -516,7 +517,6 @@ Transform:
   - {fileID: 5567675150936436611}
   - {fileID: 5567675151035325440}
   - {fileID: 7942722240785131336}
-  - {fileID: 1169546810}
   - {fileID: 3392442281646439160}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -537,11 +537,12 @@ MonoBehaviour:
   bcBoss: {fileID: 5007984086577804180}
   bcBec: {fileID: 383194580973674178}
   spBec: {fileID: 1336978577}
-  goBecBody: {fileID: 0}
+  goBecBody: {fileID: 1169546809}
   spBecBody: {fileID: 1169546811}
   bcBody: {fileID: 3923477247720508859}
   spBody: {fileID: 2168993418615169613}
   speedAtkPic: 6
+  speedRotateBody: 0.1
   speedAtkFly: 16
   pointToWin: 10000
   health: 100

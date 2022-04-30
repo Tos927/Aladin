@@ -1066,18 +1066,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BatShoot
       objectReference: {fileID: 0}
-    - target: {fileID: 1344956775075795903, guid: af5d192d185471140a69536263cf0009, type: 3}
-      propertyPath: moveSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2149615087722739493, guid: af5d192d185471140a69536263cf0009, type: 3}
-      propertyPath: shootIntervalSeconds
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4067724093056132749, guid: af5d192d185471140a69536263cf0009, type: 3}
-      propertyPath: shootIntervalSeconds
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af5d192d185471140a69536263cf0009, type: 3}
 --- !u!1001 &611147116

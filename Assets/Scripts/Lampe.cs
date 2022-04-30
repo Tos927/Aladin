@@ -14,6 +14,7 @@ public class Lampe : MonoBehaviour
     float delayTimer = 0f;
 
     public AudioSource woosh;
+    public bool isEnemy;
     public bool isActive = false;
 
     void Update()
@@ -47,7 +48,10 @@ public class Lampe : MonoBehaviour
 
     public void Shoot()
     {
-        woosh.Play();
+        if (!isEnemy)
+        {
+            woosh.Play();
+        }
         GameObject gameObject = Instantiate(bullet.gameObject, transform.position, Quaternion.identity);
         Bullet bulletDir = gameObject.GetComponent<Bullet>();
         bulletDir.direction = direction;

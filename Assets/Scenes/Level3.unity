@@ -179,9 +179,21 @@ PrefabInstance:
       value: Boss
       objectReference: {fileID: 0}
     - target: {fileID: 5567675151519726183, guid: e35abee437a19364e938dd01e8b2dfed, type: 3}
+      propertyPath: goBecBody
+      value: 
+      objectReference: {fileID: 1467327077}
+    - target: {fileID: 5567675151519726183, guid: e35abee437a19364e938dd01e8b2dfed, type: 3}
       propertyPath: victoryScreen
       value: 
       objectReference: {fileID: 1606092021}
+    - target: {fileID: 7942722240785131336, guid: e35abee437a19364e938dd01e8b2dfed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7942722240785131336, guid: e35abee437a19364e938dd01e8b2dfed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.91
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e35abee437a19364e938dd01e8b2dfed, type: 3}
 --- !u!1 &519420028
@@ -328,6 +340,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdf9cef6448d2b34dba04aad55ce3011, type: 3}
+--- !u!1 &1467327077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 383194580973674178, guid: e35abee437a19364e938dd01e8b2dfed, type: 3}
+  m_PrefabInstance: {fileID: 221250274}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1606092021 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1168223483, guid: cd3bd473f38c2d042b7cf315db695138, type: 3}

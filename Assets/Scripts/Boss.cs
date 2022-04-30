@@ -23,6 +23,7 @@ public class Boss : MonoBehaviour
     private Vector2 bcBodyPos;
 
     public float speedAtkPic = 6;
+    public float speedRotateBody = 1;
     private bool isAttacking1 = false;
     private bool isAttacking2 = false;
     private bool isAttacking3 = false;
@@ -53,7 +54,7 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
-        //atkBec = Input.GetKey(KeyCode.A);
+        atkBec = Input.GetKey(KeyCode.A);
         //atkFly = Input.GetKey(KeyCode.M);
         //shoot = Input.GetKeyDown(KeyCode.LeftControl);
 
@@ -65,7 +66,7 @@ public class Boss : MonoBehaviour
                 lampe.Shoot();
             }
         }
-        else if (randomizer == 1)
+        else if (randomizer == 1 || atkBec)
         {
             isAttacking1 = true;
         }
@@ -86,8 +87,8 @@ public class Boss : MonoBehaviour
             Vector2 pos = bcBec.transform.position;
             Quaternion ros = goBecBody.transform.rotation;
             pos.x -= speedAtkPic * Time.fixedDeltaTime;
-            bcBec.transform.position = pos;
-            ros.z += speedAtkPic * Time.fixedDeltaTime;
+            bcBec.transform.position = pos; 
+            ros.z += speedRotateBody * Time.fixedDeltaTime;
             goBecBody.transform.rotation = ros;
             StartCoroutine(CoolDownAtkBec());
             spBody.enabled = false;
