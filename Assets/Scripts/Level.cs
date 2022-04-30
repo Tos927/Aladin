@@ -13,7 +13,7 @@ public class Level : MonoBehaviour
     private bool startNextLevel = false;
     private float nextLevelTimer = 3;
 
-    public string[] levels = {"Level2C", "Level3C", "Level4C"};
+    public string[] levels;
     private int currentLevel = 0;
 
     private int score = 0;

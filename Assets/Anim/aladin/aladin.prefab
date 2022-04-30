@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1243738876400795658, guid: 2116c85f3a35e924c8b7f9f80c3ba219, type: 3}
   autoShoot: 0
-  shootIntervalSeconds: 0.5
+  shootIntervalSeconds: 2
   shootDelaySeconds: 2
   woosh: {fileID: 6057592187998797401}
   isActive: 0

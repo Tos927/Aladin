@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8435107102476065884}
   m_Layer: 0
   m_Name: ObstacleStand
-  m_TagString: Untagged
+  m_TagString: Linge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
