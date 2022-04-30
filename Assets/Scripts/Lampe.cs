@@ -52,6 +52,7 @@ public class Lampe : MonoBehaviour
         {
             woosh.Play();
         }
+
         GameObject gameObject = Instantiate(bullet.gameObject, transform.position, Quaternion.identity);
         Bullet bulletDir = gameObject.GetComponent<Bullet>();
         bulletDir.direction = direction;

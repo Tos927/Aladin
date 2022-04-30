@@ -19,8 +19,8 @@ public class Destructible : MonoBehaviour
         if (transform.position.x < 17.0f && !canBeDestroy)
         {
             canBeDestroy = true;
-            KnifeThrowing[] lampes = transform.GetComponentsInChildren<KnifeThrowing>();
-            foreach (KnifeThrowing lampe in lampes)
+            Lampe[] lampes = transform.GetComponentsInChildren<Lampe>();
+            foreach (Lampe lampe in lampes)
             {
                 lampe.isActive = true;
             }

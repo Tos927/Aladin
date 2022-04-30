@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c445d2586285454cacf435581d5f08c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 3
 --- !u!114 &6977079932611588509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1243738876400795658, guid: 0499b02f9112d99419ab6a25afaf4689, type: 3}
   autoShoot: 1
-  shootIntervalSeconds: 2
+  shootIntervalSeconds: 1
   shootDelaySeconds: 0
   woosh: {fileID: 917061490091275171}
   isEnemy: 1
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1243738876400795658, guid: 0499b02f9112d99419ab6a25afaf4689, type: 3}
   autoShoot: 1
-  shootIntervalSeconds: 2
+  shootIntervalSeconds: 1
   shootDelaySeconds: 0.2
   woosh: {fileID: 917061490091275171}
   isEnemy: 1
