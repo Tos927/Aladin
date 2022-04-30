@@ -14,6 +14,9 @@ public class Boss : MonoBehaviour
     private SpriteRenderer spBoss;
     public GameObject bcBec;
     public SpriteRenderer spBec;
+    public GameObject goBecBody;
+    private Quaternion goBecBodyRos;
+    public SpriteRenderer spBecBody;
     private Vector2 bcBecPos;
     public GameObject bcBody;
     public SpriteRenderer spBody;
@@ -38,11 +41,13 @@ public class Boss : MonoBehaviour
     {
         lampes = transform.GetComponentsInChildren<Lampe>();
         bcBecPos = bcBec.transform.position;
+        goBecBodyRos = goBecBody.transform.rotation;
         bcBodyPos = bcBody.transform.position;
         bcBoss = boss.GetComponent<BoxCollider2D>();
         spBoss = boss.GetComponentInChildren<SpriteRenderer>();
         spBody.enabled = false;
         spBec.enabled = false;
+        spBecBody.enabled = false;
         StartCoroutine(CoolDownRandomizer());
     }
 
@@ -76,9 +81,14 @@ public class Boss : MonoBehaviour
         if (isAttacking1)
         {
             spBec.enabled = true;
+            spBecBody.enabled = true;
+            spBoss.enabled = false;
             Vector2 pos = bcBec.transform.position;
+            Quaternion ros = goBecBody.transform.rotation;
             pos.x -= speedAtkPic * Time.fixedDeltaTime;
             bcBec.transform.position = pos;
+            ros.z += speedAtkPic * Time.fixedDeltaTime;
+            goBecBody.transform.rotation = ros;
             StartCoroutine(CoolDownAtkBec());
             spBody.enabled = false;
         }
@@ -121,35 +131,15 @@ public class Boss : MonoBehaviour
             }
         }
     }
-    /*void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!canBeDestroy)
-        {
-            return;
-        }
-        Bullet bullet = collision.GetComponent<Bullet>();
-        if (bullet != null && !bullet.isEnemy)
-        {
-            health--;
-            Level.instance.AddScore(pointToWin);
-            Destroy(gameObject);
-            Destroy(bullet.gameObject);
-        }
-
-        if (collision.tag == "Ulti")
-        {
-            Debug.Log("touché");
-            Level.instance.AddScore(pointToWin);
-            Destroy(gameObject);
-        }
-    }*/
 
     IEnumerator CoolDownAtkBec()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         isAttacking1 = false;
         bcBec.transform.position = bcBecPos;
+        goBecBody.transform.rotation = goBecBodyRos;
         spBec.enabled = false;
+        spBoss.enabled = true;
     }
 
     IEnumerator CoolDownAtkBody()
