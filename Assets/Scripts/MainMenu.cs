@@ -14,13 +14,13 @@ public class MainMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             Launch();
-            Time.timeScale = 1;
         }
     }
 
     public void Launch()
     {
         SceneManager.LoadSceneAsync(sceneName);
+        Time.timeScale = 1;
     }
 
     public void QuitGame()
